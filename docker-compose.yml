@@ -1,21 +1,40 @@
-version: '3.8'
-
 services:
-  flyway:
+  db:
     image: flyway/flyway:latest
     container_name: db-migrator
     volumes:
       - ./flyway/conf:/flyway/conf
       - ./flyway/sql:/flyway/sql
-      - ./db:/data
+      - ./db:/data # Shared volume to store SQLite DB
     environment:
-      - FLYWAY_URL=jdbc:sqlite:/data/flyway-demo.db
+      - FLYWAY_URL=jdbc:sqlite:/data/coffee.db
       - FLYWAY_PASSWORD=password
       - FLYWAY_USER=user
-    networks:
-      - flyway-network
     command: -connectRetries=60 clean migrate info
+  
+  api:
+    build:
+      context: . # Path to the directory containing the Dockerfile
+    image: api:latest
+    container_name: api_server
+    environment:
+      SQLALCHEMY_DATABASE_URL: "sqlite:////data/coffee.db" # Point to the shared volume
+    ports:
+      - "8000:8000/tcp"
+    volumes:
+      - ./api/src:/app
+      - ./db:/data # Shared volume to store SQLite DB      
+    working_dir: /app
+    # depends_on: 
+    #   - db
 
-networks:
-  flyway-network:
-    driver: bridge      
+  ui:
+    image: python:3.12
+    container_name: http_server
+    command: python -m http.server -d /app/ui 8080
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./ui:/app/ui    
+    depends_on: 
+      - api

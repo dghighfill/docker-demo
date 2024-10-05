@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# docker-compose up
+# Since we have a custom docker file we need to build it 
+docker-compose up --build
 # docker-compose down
-
-docker-compose $1

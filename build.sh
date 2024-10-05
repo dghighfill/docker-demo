@@ -1,6 +1,11 @@
 #!/bin/bash
 
-winpty docker build -t my_python_app .
+docker build -t api .
 
-winpty docker run --rm my_python_app
-
+docker run --rm -it \
+--volume "/$PWD/api/src:/app" \
+--volume "/$PWD/db:/data" \
+--env SQLALCHEMY_DATABASE_URL="sqlite:////data/coffee.db" \
+--name api_server \
+-p 8000:8000 \
+api

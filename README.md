@@ -50,3 +50,21 @@ Run the following command from a terminal window
 ```
 $ ./run_docker_compose.sh
 ```
+
+## Exercise 4
+
+Now we're going to layer in all the components in our docker-compose.yml
+
+Checkout exersie 4 with
+
+```
+$ git switch exercise-4
+```
+
+Review the docker-compose.yml.  We have now added the UI and API.
+
+Run the following command from a terminal window.  This will build the Dockerfile which builds a docker image with our application and fast api requirements.  This image is then used in the docker-compose-yml file.
+
+```
+$ ./run_docker_compose.sh
+```
