@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Request Example</title>
+</head>
+<body>
+    <button onclick="getCoffees()">Get Coffees</button>
+    <br>
+    <input id="coffeeId"/>
+    <button onclick="getCoffee()">Get Coffee</button>
+    <div id="response"></div>
+
+    <script>
+        function getCoffees() {
+            var url = 'http://localhost:8000/coffees'; // Replace with your API endpoint
+
+            fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(function(data) {
+                document.getElementById('response').innerHTML = JSON.stringify(data, null, 2);
+            })
+            .catch(function(error) {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        }
+        function getCoffee() {
+            var url = "http://localhost:8000/coffees/" + document.getElementById('coffeeId').value; // Replace with your API endpoint
+
+            fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(function(data) {
+                document.getElementById('response').innerHTML = JSON.stringify(data, null, 2);
+            })
+            .catch(function(error) {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,2 +1,11 @@
--- SQLLITE doesn't supprot Schemas
--- CREATE SCHEMA IF NOT EXISTS `flyway-demo` ;
+CREATE TABLE IF NOT EXISTS country(
+    id INTEGER NOT NULL PRIMARY KEY,
+    name VARCHAR(25) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS coffee(
+    id INTEGER NOT NULL PRIMARY KEY,
+    name VARCHAR(25) NOT NULL,
+    roast VARCHAR(10),
+    country_id INTEGER
+);
