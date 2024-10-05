@@ -1,7 +1,4 @@
 [environments.default]
-url="jdbc:sqlite:db/flyway-demo.db"
-user="flyway"
-password="password"
 
 [flyway]
 environment = "default"

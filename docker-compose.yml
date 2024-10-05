@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  flyway:
+    image: flyway/flyway:latest
+    container_name: db-migrator
+    volumes:
+      - ./flyway/conf:/flyway/conf
+      - ./flyway/sql:/flyway/sql
+      - ./db:/data
+    environment:
+      - FLYWAY_URL=jdbc:sqlite:/data/flyway-demo.db
+      - FLYWAY_PASSWORD=password
+      - FLYWAY_USER=user
+    networks:
+      - flyway-network
+    command: -connectRetries=60 clean migrate info
+
+networks:
+  flyway-network:
+    driver: bridge      

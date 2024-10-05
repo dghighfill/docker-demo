@@ -32,3 +32,21 @@ Run the following command from a terminal window
 ```
 $ ./build.sh
 ```
+
+## Exercise 3
+
+Now we're going to introduce a docker-compose.yml file that allows you to run multiple services.  Eventually this will house our UI, python API and Database.
+
+Checkout exersie 3 with
+
+```
+$ git switch exercise-3
+```
+
+Review the docker-compose.yml.  We've moved the startup of flyway and its configuration to this file.
+
+Run the following command from a terminal window
+
+```
+$ ./run_docker_compose.sh
+```
