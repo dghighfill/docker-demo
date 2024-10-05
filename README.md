@@ -10,6 +10,7 @@ Checkout exercise 1 with
 
 ```
 $ git switch exercise-1
+```
 
 Run the following command from a terminal window
 
