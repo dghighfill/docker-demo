@@ -25,8 +25,8 @@ services:
       - ./api/src:/app
       - ./db:/data # Shared volume to store SQLite DB      
     working_dir: /app
-    # depends_on: 
-    #   - db
+    depends_on: 
+      - db
 
   ui:
     image: python:3.12
