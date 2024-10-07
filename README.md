@@ -50,3 +50,7 @@ Run the following command from a terminal window
 ```
 $ ./run_docker_compose.sh
 ```
+
+```
+$ ./run_docker_compose.sh down
+```
