@@ -12,10 +12,4 @@ services:
       - FLYWAY_URL=jdbc:sqlite:/data/flyway-demo.db
       - FLYWAY_PASSWORD=password
       - FLYWAY_USER=user
-    networks:
-      - flyway-network
     command: -connectRetries=60 clean migrate info
-
-networks:
-  flyway-network:
-    driver: bridge      
