@@ -68,3 +68,11 @@ Run the following command from a terminal window.  This will build the Dockerfil
 ```
 $ ./run_docker_compose.sh
 ```
+
+### Test the application
+
+The API = http://localhost:8000/coffees
+Access the API Documentation = http://localhost:8000/docs
+
+The UI = http://localhost:8080/home.html
+
