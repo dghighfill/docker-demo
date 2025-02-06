@@ -68,3 +68,7 @@ Run the following command from a terminal window.  This will build the Dockerfil
 ```
 $ ./run_docker_compose.sh
 ```
+
+### Test the application
+
+The API = 
