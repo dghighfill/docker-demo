@@ -48,7 +48,7 @@ Review the docker-compose.yml.  We've moved the startup of flyway and its config
 Run the following command from a terminal window
 
 ```
-$ ./run_docker_compose.sh
+$ ./run_docker_compose.sh up
 ```
 
 ```
