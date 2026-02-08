@@ -15,7 +15,7 @@ $ git switch exercise-1
 Run the following command from a terminal window
 
 ```
-$ ./run_docker.sh clean migrate info
+$ ./run_docker.sh clean -baselineOnMigrate=true migrate info
 ```
 
 ## Exercise 2
