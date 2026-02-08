@@ -4,7 +4,7 @@ This demo just launches a very simple flyway container and migrates a database.
 
 ## Exercise 1
 
-Clone the repository https://github.com/dghighfill/docker-demo.git 
+Clone the repository https://github.com/dghighfill/docker-demo.git
 
 Checkout exercise 1 with
 
@@ -15,7 +15,7 @@ $ git switch exercise-1
 Run the following command from a terminal window
 
 ```
-$ ./run_docker.sh clean migrate info
+$ ./run_docker.sh clean -baselineOnMigrate=true migrate info
 ```
 
 ## Exercise 2
@@ -75,4 +75,3 @@ The API = http://localhost:8000/coffees
 Access the API Documentation = http://localhost:8000/docs
 
 The UI = http://localhost:8080/home.html
-

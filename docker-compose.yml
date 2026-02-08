@@ -10,8 +10,8 @@ services:
       - FLYWAY_URL=jdbc:sqlite:/data/coffee.db
       - FLYWAY_PASSWORD=password
       - FLYWAY_USER=user
-    command: -connectRetries=60 clean migrate info
-  
+    command: -connectRetries=60 clean -baselineOnMigrate=true migrate info
+
   api:
     build:
       context: . # Path to the directory containing the Dockerfile
@@ -23,9 +23,9 @@ services:
       - "8000:8000/tcp"
     volumes:
       - ./api/src:/app
-      - ./db:/data # Shared volume to store SQLite DB      
+      - ./db:/data # Shared volume to store SQLite DB
     working_dir: /app
-    depends_on: 
+    depends_on:
       - db
 
   ui:
@@ -35,6 +35,6 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./ui:/app/ui    
-    depends_on: 
+      - ./ui:/app/ui
+    depends_on:
       - api

@@ -1,5 +1,5 @@
 [environments.default]
-url="jdbc:sqlite:flyway-demo.db"
+url="jdbc:sqlite:/flyway/db/coffee.db"
 user="flyway"
 password="password"
 cleanDisabled="false"
