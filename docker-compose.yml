@@ -29,7 +29,7 @@ services:
       - db
 
   ui:
-    image: python:3.12
+    image: python:3.14-slim
     container_name: http_server
     command: python -m http.server -d /app/ui 8080
     ports:
